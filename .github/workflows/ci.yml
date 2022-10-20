@@ -1,0 +1,29 @@
+name: Go Test
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create KinD cluster
+        uses: container-tools/kind-action@v1
+        with:
+          registry: false
+      - uses: actions/checkout@v3
+      - uses: helmwave/setup-action@v0.2.0
+        name: Install helmwave
+        with:
+          version: '0.23.1'
+      - name: templating helmwave.yml.tpl  
+        run: helmwave yml
+      - name: plan
+        run: helmwave build
+      - name: deploy
+        run: helmwave up
