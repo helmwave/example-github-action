@@ -6,8 +6,13 @@ repositories:
 
 .options: &options
   namespace: my-namespace
-  wait: true
   create_namespace: true
+  wait: true
+  wait_for_jobs: true
+  timeout: 15m
+  atomic: false
+  maxhistory: 10
+
 
 releases:
   - name: nginx
