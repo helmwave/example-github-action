@@ -20,7 +20,7 @@ jobs:
       - uses: helmwave/setup-action@v0.2.0
         name: Install helmwave
         with:
-          version: '0.23.1'
+          version: '0.22.2'
       - name: templating helmwave.yml.tpl  
         run: helmwave yml
       - name: plan
