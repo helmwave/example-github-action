@@ -7,6 +7,7 @@ repositories:
 .options: &options
   namespace: my-namespace
   wait: true
+  create_namespace: true
 
 releases:
   - name: nginx
