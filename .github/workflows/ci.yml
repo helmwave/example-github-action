@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  tests:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Create KinD cluster
